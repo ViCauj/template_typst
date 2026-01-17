@@ -1,4 +1,11 @@
+/*
+  Typst Template
+  Author: Vincent Caujolle
+  Version: 1.0.0
+*/
+
 #import "@preview/suiji:0.5.1": *
+#import "@preview/fancy-tiling:1.0.0": *
 
 #let dice = (sym.die.one, sym.die.two, sym.die.three, sym.die.four, sym.die.five, sym.die.six)
 #let today = datetime.today()
@@ -122,10 +129,23 @@
   )
 }
 
-#let demo(body, qed: sym.errorbar.square.filled) = {
+#let demo(body, qed: sym.errorbar.square.filled, type: none) = {
+  let fill_color = white
+  let stroke_color = black
+  let v_inset = 0em
+  if type == thm {
+    fill_color = rgb(0, 0, 128, 10%)
+    stroke_color = blue
+    v_inset = 1em
+  } else if type == prop {
+    fill_color = rgb(128, 0, 0, 10%)
+    stroke_color = red
+    v_inset = 1em
+  }
+
   block(
     width: 100%,
-    inset: (left: 1em, right: 1em),
+    inset: (left: 1em, right: 1em, top: v_inset, bottom: v_inset),
     spacing: 2em,
     radius: (
       top-left: 0%,
@@ -133,7 +153,8 @@
       bottom-left: 0%,
       bottom-right: 5%
     ),
-    stroke: (left:  2pt + black, top: none, right: none, bottom: none),
+    stroke: (left:  2pt + stroke_color, top: none, right: none, bottom: none),
+    fill: diagonal-stripes(stripe-color: fill_color, size: 10pt, thickness-ratio: 50%),
     [
       *Démonstration* #body ~ #h(1fr) #box(rotate(90deg, qed))
     ]
@@ -171,7 +192,7 @@
       bottom-right: 5%
     ),
     stroke: (left: 2pt + orange, top: none, right: none, bottom: none),
-    fill: rgb(255, 255, 128, 40%),
+    fill: checkerboard(cell-color: rgb(255, 255, 128, 50%)),
     [
       *Remarque* #body
     ]
