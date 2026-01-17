@@ -35,7 +35,3 @@ $ limits(integral)_100^b sum_(i in NN) frac(12, 3x + y^i) mat(1,2;x,y;dots.v, do
   #lorem(20)
 ]
 #lorem(500)
-
-#full_width_equation($ f(x) = integral_(-oo)^(+oo) (e^(-i omega t) dot hat(f)(omega)) / (sqrt(2 pi sigma^2)) dif omega $)
-
-#lorem(500)

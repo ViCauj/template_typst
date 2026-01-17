@@ -173,7 +173,7 @@
     stroke: (left:  2pt + stroke_color, top: none, right: none, bottom: none),
     fill: diagonal-stripes(stripe-color: fill_color, size: 10pt, thickness-ratio: 50%),
     [
-      *Démonstration* #body ~ #h(1fr) #box(rotate(90deg, qed))
+      *Démonstration* #body #align(right)[#box(rotate(90deg, qed))]
     ]
   )
 }
