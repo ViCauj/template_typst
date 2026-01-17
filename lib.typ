@@ -22,6 +22,23 @@
   set par(
     justify: true,
   );
+
+  show heading.where(level:1): it => {
+    counter(math.equation).update(0)
+    it
+  }
+  set math.equation(supplement: none, numbering: n => {
+    numbering("(1.1)", counter(heading).get().first(), n)
+  })
+  show math.equation: it => {
+    if it.has("label") and it.label == <no> {
+      counter(math.equation).update(n => n - 1)
+      math.equation(numbering: none, block: true, it.body)
+    } else {
+      it
+    }
+  }
+
   set page(
     paper: "us-letter",
     numbering: "1",
