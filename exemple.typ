@@ -25,7 +25,7 @@ $ <a>
 ]
 #lorem(30)
 #prop[
-  #lorem(50)
+  #lorem(100)
 ]
 #thm[
   #lorem(50)
@@ -38,6 +38,6 @@ $ <a>
   #lorem(10)
 ]
 #rem[
-  #lorem(20)
+  #lorem(50)
 ]
 #lorem(500)
