@@ -12,7 +12,13 @@
 == Sous Section
 
 #lorem(20) *#lorem(5)* #lorem(10)
-$ limits(integral)_100^b sum_(i in NN) frac(12, 3x + y^i) mat(1,2;x,y;dots.v, dots.v;0,1;) $
+$ 
+limits(integral)_100^b sum_(i in NN) frac(12, 3x + y^i) mat(1,2;x,y;dots.v, dots.v;0,1;)
+$ 
+#lorem(10)
+$ 
+limits(integral)_100^b sum_(i in NN) frac(12, 3x + y^i) mat(1,2;x,y;dots.v, dots.v;0,1;)
+$ <a>
 #lorem(50)
 #def[
   #lorem(30)

@@ -31,7 +31,7 @@
     numbering("(1.1)", counter(heading).get().first(), n)
   })
   show math.equation: it => {
-    if it.has("label") and it.label == <no> {
+    if not it.has("label") and it.numbering != none {
       counter(math.equation).update(n => n - 1)
       math.equation(numbering: none, block: true, it.body)
     } else {
