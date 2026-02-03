@@ -215,3 +215,12 @@
     ]
   )
 }
+
+#let enc(body) = {
+  align(center)[
+    #block(
+      stroke: 0.5pt,
+      inset: 10pt,
+    )[#body]
+  ]
+}

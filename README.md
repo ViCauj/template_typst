@@ -28,3 +28,4 @@ Pour utiliser ce template, vous devez importer le fichier `lib.typ` dans votre d
 - `demo(body, type:none)`: Crée un bloc de démonstration (On peut préciser si on veut le type de démonstration `thm` ou `prop`)
 - `expl(body)`: Crée un bloc d'exemple.
 - `rem(body)`: Crée un bloc de remarque.
+- `enc(body)`: Crée un bloc centré encadré.

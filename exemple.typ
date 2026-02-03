@@ -40,4 +40,10 @@ $ <a>
 #rem[
   #lorem(50)
 ]
+#lorem(50)
+#enc[
+  $
+  E = m c^2
+  $
+]
 #lorem(500)
