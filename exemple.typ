@@ -46,4 +46,7 @@ $ <a>
   E = m c^2
   $
 ]
+#lorem(50)
+#cor[#lorem(20)]
+#demo(type:cor)[azaz]
 #lorem(500)

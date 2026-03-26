@@ -28,6 +28,7 @@
   show figure.where(kind: "definition"): it => it.body
   show figure.where(kind: "proposition"): it => it.body
   show figure.where(kind: "theorem"): it => it.body
+  show figure.where(kind: "corollaire"): it => it.body
 
   // réinitialise les conteurs à chaque nouvelles sections
   show heading.where(level:1): it => {
@@ -35,6 +36,7 @@
     counter(figure.where(kind: "definition")).update(0)
     counter(figure.where(kind: "proposition")).update(0)
     counter(figure.where(kind: "theorem")).update(0)
+    counter(figure.where(kind: "corollaire")).update(0)
     it
   }
   set math.equation(supplement: none, numbering: n => {
@@ -164,6 +166,30 @@
     caption: none,
   )
 }
+
+#let cor(body) = {
+  figure(
+    block(
+      width: 100%, inset: 1em,
+      radius: (top-right: 2.5%, bottom-right: 2.5%),
+      stroke: (left: 2pt + purple),
+      fill: rgb(128, 0, 128, 10%),
+      breakable: true,
+      align(left)[
+        *Corollaire #context {
+          let h = counter(heading).at(here()).first()
+          let n = counter(figure.where(kind: "corollaire")).at(here()).first()
+          numbering("1.1", h, n)
+        }* #body
+      ]
+    ),
+    kind: "corollaire",
+    supplement: [corollaire],
+    numbering: "1.1",
+    caption: none,
+  )
+}
+
 #let demo(body, qed: sym.errorbar.square.filled, type: none) = {
   let fill_color = white
   let stroke_color = black
@@ -175,6 +201,10 @@
   } else if type == prop {
     fill_color = rgb(128, 0, 0, 5%)
     stroke_color = red
+    v_inset = 1em
+  } else if type == cor {
+    fill_color = rgb(128, 0, 128, 5%)
+    stroke_color = purple
     v_inset = 1em
   }
 
@@ -207,8 +237,7 @@
       bottom-left: 0%,
       bottom-right: 2.5%
     ),
-    stroke: (left: (dash: "dashed", paint: purple, thickness: 2pt), top: none, right: none, bottom: none),
-    fill: rgb(128, 0, 128, 5%),
+    stroke: (left: (dash: "solid", paint: gray, thickness: 2pt), top: none, right: none, bottom: none),
     [
       *Exemple* #body
     ]
@@ -226,8 +255,7 @@
       bottom-left: 0%,
       bottom-right: 2.5%
     ),
-    stroke: (left: 2pt + orange, top: none, right: none, bottom: none),
-    fill: checkerboard(cell-color: rgb(255, 255, 128, 50%)),
+    stroke: (left: (dash: "dashed", paint: gray, thickness: 2pt), top: none, right: none, bottom: none),
     [
       *Remarque* #body
     ]
