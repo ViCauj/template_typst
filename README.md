@@ -1,7 +1,5 @@
 # Typst Template
 
-Ce template a été créé par Vincent Caujolle.
-
 ## Utilisation
 
 Pour utiliser ce template, vous devez importer le fichier `lib.typ` dans votre document `.typ`.
